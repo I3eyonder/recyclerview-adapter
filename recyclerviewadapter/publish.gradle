@@ -1,0 +1,33 @@
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def bintrayUserEnvKey = 'BINTRAY_USER'
+def bintrayApiEnvKey = 'BINTRAY_KEY'
+
+def groupName = 'com.dev.hieupt'
+def versionName = '1.0.0'
+def pkgRepoName = 'utilities'
+def pkgName = 'recycler-view-adapter'
+def pkgDesc = 'Recycler View Adapter'
+def pkgLicenses = ['Apache-2.0']
+def gitUrl = 'https://hieupham1993@bitbucket.org/hieupham1993/recyclerview-adapter.git'
+
+group = groupName
+version = versionName
+
+bintray {
+    user = System.getenv(bintrayUserEnvKey)
+    key = System.getenv(bintrayApiEnvKey)
+    configurations = ['archives']
+    pkg {
+        repo = pkgRepoName
+        name = pkgName
+        desc = pkgDesc
+        licenses = pkgLicenses
+        vcsUrl = gitUrl
+        version {
+            name = versionName
+            released = new Date()
+        }
+    }
+}
