@@ -1,6 +1,5 @@
 package com.app.demo.recyclerviewadapter
 
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +11,8 @@ import kotlinx.android.synthetic.main.item_color.view.*
 /**
  * Created by HieuPT on 7/7/2019.
  */
-class ColorAdapter(items: List<String>?, onItemClicked: OnItemClicked<String>? = null) :
-    RecyclerListAdapter<ColorAdapter.ViewHolder, String>(items, onItemClicked) {
+class ColorAdapter(items: List<Int>?, onItemClicked: OnItemClicked<Int>? = null) :
+        RecyclerListAdapter<ColorAdapter.ViewHolder, Int>(items, onItemClicked) {
 
     override fun onCreatingViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return LayoutInflater.from(parent.context).inflate(R.layout.item_color, parent, false).run {
@@ -21,14 +20,14 @@ class ColorAdapter(items: List<String>?, onItemClicked: OnItemClicked<String>? =
         }
     }
 
-    override fun onBindingViewHolder(holder: ViewHolder, item: String, position: Int) {
+    override fun onBindingViewHolder(holder: ViewHolder, item: Int, position: Int) {
         holder.bind(item)
     }
 
-    class ViewHolder(itemView: View) : BaseRecyclerAdapter.BaseViewHolder<String>(itemView) {
+    class ViewHolder(itemView: View) : BaseRecyclerAdapter.BaseViewHolder<Int>(itemView) {
 
-        fun bind(item: String) {
-            itemView.backgroundLayout.setBackgroundColor(Color.parseColor(item))
+        fun bind(item: Int) {
+            itemView.backgroundLayout.setBackgroundColor(item)
         }
     }
 }
