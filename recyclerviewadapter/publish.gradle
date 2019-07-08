@@ -10,7 +10,7 @@ def pkgRepoName = 'utilities'
 def pkgName = 'recycler-view-adapter'
 def pkgDesc = 'Recycler View Adapter'
 def pkgLicenses = ['Apache-2.0']
-def gitUrl = 'https://hieupham1993@bitbucket.org/hieupham1993/recyclerview-adapter.git'
+def gitUrl = 'https://github.com/hieupham1993/recyclerview-adapter.git'
 
 group = groupName
 version = versionName
