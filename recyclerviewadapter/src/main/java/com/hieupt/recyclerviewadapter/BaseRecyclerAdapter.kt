@@ -33,7 +33,7 @@ abstract class BaseRecyclerAdapter<VH : BaseRecyclerAdapter.BaseViewHolder<T>, T
 
         private var onItemClicked: OnItemClicked<T>? = null
 
-        internal fun setOnItemClicked(action: OnItemClicked<T>?) {
+        fun setOnItemClicked(action: OnItemClicked<T>?) {
             onItemClicked = action
         }
 
