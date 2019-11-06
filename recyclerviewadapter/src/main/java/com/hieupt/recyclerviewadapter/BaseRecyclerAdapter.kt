@@ -21,9 +21,10 @@ abstract class BaseRecyclerAdapter<VH : BaseRecyclerAdapter.BaseViewHolder<T>, T
             }.also { onPostCreateViewHolder(it) }
 
     final override fun onBindViewHolder(holder: VH, position: Int) {
-        val item = getItem(position)
-        holder.updateOnItemClickAction(item, position)
-        onBindingViewHolder(holder, item, position)
+        holder.updateOnItemClickAction {
+            getItem(it)
+        }
+        onBindingViewHolder(holder, getItem(position), position)
     }
 
     open fun onPostCreateViewHolder(viewHolder: VH) {
@@ -37,9 +38,9 @@ abstract class BaseRecyclerAdapter<VH : BaseRecyclerAdapter.BaseViewHolder<T>, T
             onItemClicked = action
         }
 
-        internal fun updateOnItemClickAction(item: T, position: Int) {
+        internal fun updateOnItemClickAction(itemAt: (position: Int) -> T) {
             itemView.setOnClickListener {
-                callOnItemClicked(position, item)
+                callOnItemClicked(adapterPosition, itemAt(adapterPosition))
             }
         }
 
